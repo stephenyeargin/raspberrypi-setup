@@ -1,0 +1,16 @@
+#!/bin/bash
+sudo apt-get update
+sudo apt-get install -y nginx
+
+sudo mkdir -p /var/www
+sudo chown pi:staff /var/www
+
+sudo service nginx stop
+sudo unlink /etc/sites-enabled/default
+
+sudo cp ../sites-available/raspberrypi-camera
+pushd /etc/nginx/sites-enabled
+sudo ln -s ../sites-available/raspberrypi-camera
+popd
+
+sudo service nginx start
