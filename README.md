@@ -8,6 +8,8 @@ This is a collection of scripts borrowed from [here](https://github.com/jameswhi
 cd ~
 git clone https://github.com/stephenyeargin/raspberrypi-setup.git
 cd raspberrypi-setup/bin
+./fix-wifi-drops
+./fix-us-keyboard
 ./install-motion
 ./install-nginx-camera
 ```

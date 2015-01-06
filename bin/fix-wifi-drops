@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "Updating configuration ..."
+sudo cp 8192cu.conf /etc/modprobe.d/
+echo "WiFi power mode updated. Resart to take effect."
