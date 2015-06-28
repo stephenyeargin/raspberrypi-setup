@@ -28,6 +28,7 @@ sudo chmod a+x /etc/init.d/homebridge
 sudo update-rc.d homebridge defaults
 
 # Create a temporary init.d script then move it into place
+sudo mkdir -p /var/log/forever
 cat << 'EOF' > /tmp/homebridge-launch-tmp
 #!/bin/sh
 
@@ -38,7 +39,7 @@ export SERVER_IFACE='0.0.0.0'
 
 case "$1" in
   start)
-  exec forever --sourceDir=/opt/homebridge -p /var/log/forever start app.js
+  exec forever start --sourceDir=/opt/homebridge -p /var/log/forever app.js
   ;;
 
   stop)
@@ -49,3 +50,5 @@ esac
 exit 0
 EOF
 sudo mv /tmp/homebridge-launch-tmp /etc/init.d/homebridge
+sudo chown root:root /etc/init.d/homebridge
+sudo chmod +x homebridge
