@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Install node
 cd ~/
 wget http://node-arm.herokuapp.com/node_latest_armhf.deb 
